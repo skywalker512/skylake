@@ -1,0 +1,70 @@
+{
+  "name": "@skylakes/slate-core",
+  "version": "11.0.0",
+  "description": "The core architecture of Plate – a plugin system for slate",
+  "keywords": [
+    "wysiwyg",
+    "rich text",
+    "editor",
+    "html",
+    "contentEditable",
+    "framework",
+    "slate",
+    "plate",
+    "plugin"
+  ],
+  "homepage": "https://plate.udecode.io",
+  "bugs": {
+    "url": "https://github.com/udecode/plate/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/udecode/plate.git",
+    "directory": "packages/core"
+  },
+  "license": "MIT",
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup --dts",
+    "dev": "tsup --watch --onSuccess=tsc"
+  },
+  "dependencies": {
+    "@types/is-hotkey": "^0.1.7",
+    "@types/lodash-es": "^4.17.6",
+    "@udecode/zustood": "^1.1.1",
+    "clsx": "^1.1.1",
+    "is-hotkey": "^0.2.0",
+    "jotai": "^1.6.7",
+    "lodash-es": "^4.17.21",
+    "scheduler": "^0.22.0",
+    "use-deep-compare": "^1.1.0",
+    "zustand": "4.0.0-rc.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.4",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "slate": "^0.78.0",
+    "slate-history": "^0.66.0",
+    "slate-hyperscript": "^0.77.0",
+    "slate-react": "^0.79.0"
+  },
+  "peerDependencies": {
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.4",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "slate": "^0.78.0",
+    "slate-history": "^0.66.0",
+    "slate-hyperscript": "^0.77.0",
+    "slate-react": "^0.79.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

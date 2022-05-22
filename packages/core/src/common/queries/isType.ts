@@ -1,0 +1,18 @@
+import { castArray } from 'lodash-es'
+import { Value } from '../../slate/editor/TEditor'
+import { PlateEditor } from '../../types/PlateEditor'
+import { getPluginType } from '../../utils/getPluginType'
+
+/** Does the node match the type provided. */
+export const isType = <V extends Value>(
+  editor: PlateEditor<V>,
+  node: any,
+  key?: string | string[]
+) => {
+  const keys = castArray(key)
+  const types: string[] = []
+
+  keys.forEach((_key) => types.push(getPluginType(editor, _key)))
+
+  return types.includes(node?.type)
+}

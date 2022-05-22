@@ -1,0 +1,7 @@
+{
+  "extends": "@starfleet/tsconfig/tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "compilerOptions": {},
+  "exclude": ["node_modules"]
+}

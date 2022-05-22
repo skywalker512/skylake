@@ -1,0 +1,19 @@
+import { TEditor, Value } from '../../slate/editor/TEditor'
+import { unwrapNodes } from '../../slate/transforms/unwrapNodes'
+import { wrapNodes } from '../../slate/transforms/wrapNodes'
+import { someNode } from '../queries/someNode'
+
+/** Unwrap if the node type is in selection. Wrap otherwise. */
+export const toggleWrapNodes = <V extends Value>(
+  editor: TEditor<V>,
+  type: string
+) => {
+  if (someNode(editor, { match: { type } })) {
+    unwrapNodes(editor, { match: { type } })
+  } else {
+    wrapNodes(editor, {
+      type,
+      children: [],
+    })
+  }
+}
