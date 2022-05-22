@@ -19,9 +19,9 @@
     "eslint": "^8.16.0",
     "husky": "^8.0.1",
     "nano-staged": "^0.8.0",
+    "nx": "14.1.7",
     "prettier": "^2.6.2",
     "tsup": "^5.12.8",
-    "turbo": "^1.2.11",
     "typescript": "^4.6.4"
   },
   "nano-staged": {
