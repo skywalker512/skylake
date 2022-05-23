@@ -29,8 +29,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup --dts",
-    "dev": "tsup --watch --onSuccess=tsc"
+    "build": "tsup --onSuccess=tsc",
+    "dev": "tsup --watch --onSuccess=tsc",
+    "release": "tsup --dts"
   },
   "dependencies": {
     "@types/is-hotkey": "^0.1.7",
