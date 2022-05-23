@@ -57,7 +57,7 @@ export interface PlateProps<
 }
 
 export const PlateContent = <
-  V extends Value,
+  V extends Value = Value,
   E extends PlateEditor<V> = PlateEditor<V>
 >({
   children,
@@ -81,7 +81,7 @@ export const PlateContent = <
 }
 
 export const Plate = <
-  V extends Value,
+  V extends Value = Value,
   E extends PlateEditor<V> = PlateEditor<V>
 >(
   props: PlateProps<V, E>

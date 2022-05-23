@@ -3,7 +3,10 @@ import { Value } from '../slate/editor/TEditor'
 import { PlateEditor } from './PlateEditor'
 
 /** Node props passed by Plate */
-export interface PlateRenderNodeProps<V extends Value> extends UnknownObject {
+export interface PlateRenderNodeProps<
+  V extends Value,
+  E extends PlateEditor<V> = PlateEditor<V>
+> extends UnknownObject {
   className?: string
 
   editor: PlateEditor<V>

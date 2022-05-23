@@ -1,3 +1,4 @@
+import React from 'react'
 import { Editable } from 'slate-react'
 import { usePlate } from '../hooks/usePlate/usePlate'
 import { Value } from '../slate/editor/TEditor'

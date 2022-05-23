@@ -1,4 +1,4 @@
-import { castArray } from 'lodash-es'
+import castArray from 'lodash/castArray'
 import { TEditor, Value } from '../../slate/editor/TEditor'
 import { withoutNormalizing } from '../../slate/editor/withoutNormalizing'
 import { EMarks } from '../../slate/text/TText'

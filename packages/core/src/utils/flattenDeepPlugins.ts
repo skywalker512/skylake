@@ -1,4 +1,4 @@
-import { defaultsDeep } from 'lodash-es'
+import defaultsDeep from 'lodash/defaultsDeep'
 import { Value } from '../slate/editor/TEditor'
 import { PlateEditor } from '../types/PlateEditor'
 import { PlatePlugin } from '../types/plugins/PlatePlugin'

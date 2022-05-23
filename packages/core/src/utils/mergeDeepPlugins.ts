@@ -1,11 +1,14 @@
-import { defaultsDeep, keyBy, merge, values } from 'lodash-es'
+import defaultsDeep from 'lodash/defaultsDeep'
+import keyBy from 'lodash/keyBy'
+import merge from 'lodash/merge'
+import values from 'lodash/values'
 import { Value } from '../slate/editor/TEditor'
 import { PlateEditor } from '../types/PlateEditor'
 import { WithPlatePlugin } from '../types/plugins/PlatePlugin'
 
 /** Recursively merge nested plugins into the root plugins */
 export const mergeDeepPlugins = <
-  V extends Value,
+  V extends Value = Value,
   E extends PlateEditor<V> = PlateEditor<V>,
   P extends WithPlatePlugin<{}, V, E> = WithPlatePlugin<{}, V, E>
 >(

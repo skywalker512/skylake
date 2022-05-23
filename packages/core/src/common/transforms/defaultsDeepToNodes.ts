@@ -1,4 +1,4 @@
-import { defaults } from 'lodash-es'
+import defaults from 'lodash/defaults'
 import { TNode } from '../../slate/node/TNode'
 import {
   applyDeepToNodes,

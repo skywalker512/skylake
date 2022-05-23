@@ -1,3 +1,4 @@
+import React from 'react'
 import { Value } from '../slate/editor/TEditor'
 import { createPlateEditor } from '../utils/createPlateEditor'
 import { Plate, PlateProps } from './Plate'

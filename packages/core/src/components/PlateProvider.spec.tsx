@@ -1,3 +1,4 @@
+import React from 'react'
 import { renderHook } from '@testing-library/react-hooks'
 import { usePlateId } from '../stores/plate/selectors/usePlateId'
 import { PlateProvider } from './PlateProvider'

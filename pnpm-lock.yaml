@@ -34,7 +34,11 @@ importers:
 
   apps/skylake:
     specifiers:
+      '@skylakes/slate-block-quote': workspace:*
+      '@skylakes/slate-code-block': workspace:*
       '@skylakes/slate-core': workspace:*
+      '@skylakes/slate-heading': workspace:*
+      '@skylakes/slate-paragraph': workspace:*
       '@types/react': ^18.0.9
       '@types/react-dom': ^18.0.4
       '@udecode/plate-core': ^11.0.6
@@ -50,7 +54,11 @@ importers:
       vite: ^2.9.9
       vite-plugin-inspect: ^0.5.0
     dependencies:
+      '@skylakes/slate-block-quote': link:../../packages/block-quote
+      '@skylakes/slate-code-block': link:../../packages/code-block
       '@skylakes/slate-core': link:../../packages/core
+      '@skylakes/slate-heading': link:../../packages/heading
+      '@skylakes/slate-paragraph': link:../../packages/paragraph
       '@udecode/plate-core': 11.0.6_benzyvdikcnot2ufifcv7bpwwq
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
@@ -67,17 +75,35 @@ importers:
       vite: 2.9.9
       vite-plugin-inspect: 0.5.0_vite@2.9.9
 
+  packages/block-quote:
+    specifiers:
+      '@skylakes/slate-core': workspace:*
+    dependencies:
+      '@skylakes/slate-core': link:../core
+
+  packages/code-block:
+    specifiers:
+      '@skylakes/slate-core': workspace:*
+      '@types/prismjs': ^1.26.0
+      prismjs: ^1.28.0
+      slate: ^0.78.0
+    dependencies:
+      '@skylakes/slate-core': link:../core
+      '@types/prismjs': 1.26.0
+      prismjs: 1.28.0
+      slate: 0.78.0
+
   packages/core:
     specifiers:
       '@types/is-hotkey': ^0.1.7
-      '@types/lodash-es': ^4.17.6
+      '@types/lodash': ^4.14.182
       '@types/react': ^18.0.9
       '@types/react-dom': ^18.0.4
       '@udecode/zustood': ^1.1.1
       clsx: ^1.1.1
       is-hotkey: ^0.2.0
       jotai: ^1.6.7
-      lodash-es: ^4.17.21
+      lodash: ^4.17.21
       react: ^18.1.0
       react-dom: ^18.1.0
       scheduler: ^0.22.0
@@ -89,12 +115,12 @@ importers:
       zustand: 4.0.0-rc.1
     dependencies:
       '@types/is-hotkey': 0.1.7
-      '@types/lodash-es': 4.17.6
+      '@types/lodash': 4.14.182
       '@udecode/zustood': 1.1.1_id34gpsmvsqvlydcytxyebobuy
       clsx: 1.1.1
       is-hotkey: 0.2.0
       jotai: 1.6.7_react@18.1.0
-      lodash-es: 4.17.21
+      lodash: 4.17.21
       scheduler: 0.22.0
       use-deep-compare: 1.1.0_react@18.1.0
       zustand: 4.0.0-rc.1_react@18.1.0
@@ -107,6 +133,18 @@ importers:
       slate-history: 0.66.0_slate@0.78.0
       slate-hyperscript: 0.77.0_slate@0.78.0
       slate-react: 0.79.0_f2wd3brsyncbqb5a2vzjxmzjby
+
+  packages/heading:
+    specifiers:
+      '@skylakes/slate-core': workspace:*
+    dependencies:
+      '@skylakes/slate-core': link:../core
+
+  packages/paragraph:
+    specifiers:
+      '@skylakes/slate-core': workspace:*
+    dependencies:
+      '@skylakes/slate-core': link:../core
 
 packages:
 
@@ -773,12 +811,6 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
 
-  /@types/lodash-es/4.17.6:
-    resolution: {integrity: sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==}
-    dependencies:
-      '@types/lodash': 4.14.182
-    dev: false
-
   /@types/lodash/4.14.182:
     resolution: {integrity: sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==}
 
@@ -803,6 +835,10 @@ packages:
   /@types/prettier/2.6.1:
     resolution: {integrity: sha512-XFjFHmaLVifrAKaZ+EKghFHtHSUonyw8P2Qmy2/+osBnrKbH9UYtlK10zg8/kCt47MFilll/DEDKy3DHfJ0URw==}
     dev: true
+
+  /@types/prismjs/1.26.0:
+    resolution: {integrity: sha512-ZTaqn/qSqUuAq1YwvOFQfVW1AR/oQJlLSZVustdjwI+GZ8kr0MSHBj0tsXPW1EqHubx50gtBEjbPGsdZwQwCjQ==}
+    dev: false
 
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
@@ -2768,10 +2804,6 @@ packages:
       path-exists: 3.0.0
     dev: true
 
-  /lodash-es/4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-    dev: false
-
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
@@ -3366,6 +3398,11 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
+
+  /prismjs/1.28.0:
+    resolution: {integrity: sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==}
+    engines: {node: '>=6'}
+    dev: false
 
   /prop-types/15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}

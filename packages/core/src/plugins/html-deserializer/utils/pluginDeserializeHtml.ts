@@ -1,4 +1,4 @@
-import { castArray } from 'lodash-es'
+import castArray from 'lodash/castArray'
 import { AnyObject } from '../../../common/types/utility/AnyObject'
 import { Nullable } from '../../../common/types/utility/Nullable'
 import { Value } from '../../../slate/editor/TEditor'

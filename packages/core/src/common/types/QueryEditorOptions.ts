@@ -4,7 +4,7 @@ import { QueryNodeOptions } from './QueryNodeOptions'
 
 /** Query the editor state. */
 export interface QueryEditorOptions<
-  V extends Value,
+  V extends Value = Value,
   E extends TEditor<V> = TEditor<V>
 > extends Pick<QueryNodeOptions, 'allow' | 'exclude'> {
   /** Query the editor. */

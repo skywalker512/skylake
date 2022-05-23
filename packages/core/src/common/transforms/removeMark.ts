@@ -1,4 +1,4 @@
-import { castArray } from 'lodash-es'
+import castArray from 'lodash/castArray'
 import { Range } from 'slate'
 import { getMarks } from '../../slate/editor/getMarks'
 import { TEditor, Value } from '../../slate/editor/TEditor'
@@ -7,8 +7,10 @@ import { EMarks } from '../../slate/text/TText'
 import { SetNodesOptions } from '../../slate/transforms/setNodes'
 import { unsetNodes } from '../../slate/transforms/unsetNodes'
 
-export interface RemoveMarkOptions<V extends Value, K extends keyof EMarks<V>>
-  extends Omit<SetNodesOptions<V>, 'match' | 'split'> {
+export interface RemoveMarkOptions<
+  V extends Value = Value,
+  K extends keyof EMarks<V> = keyof EMarks<V>
+> extends Omit<SetNodesOptions<V>, 'match' | 'split'> {
   /** Mark or the array of marks that will be removed */
   key: K | K[]
 
@@ -46,7 +48,6 @@ export const removeMark = <V extends Value, K extends keyof EMarks<V>>(
         delete marks[k]
       })
       editor.marks = marks
-      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       shouldChange && editor.onChange()
     }
   }

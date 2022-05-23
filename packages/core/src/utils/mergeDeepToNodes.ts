@@ -1,4 +1,4 @@
-import { merge } from 'lodash-es'
+import merge from 'lodash/merge'
 import { TNode } from '../slate/node/TNode'
 import { applyDeepToNodes, ApplyDeepToNodesOptions } from './applyDeepToNodes'
 

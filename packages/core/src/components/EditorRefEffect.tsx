@@ -1,3 +1,4 @@
+import React from 'react'
 import { useEditorRef } from '../hooks/useEditorRef'
 import { usePlateSelectors } from '../stores/plate/platesStore'
 import { WithPlatePlugin } from '../types/plugins/PlatePlugin'

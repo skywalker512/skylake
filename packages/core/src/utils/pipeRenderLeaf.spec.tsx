@@ -1,3 +1,4 @@
+import React from 'react'
 import { render } from '@testing-library/react'
 import { createPlateUIEditor } from '../../../ui/plate/src/utils/createPlateUIEditor'
 import { pipeRenderLeaf } from './pipeRenderLeaf'

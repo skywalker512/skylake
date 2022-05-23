@@ -1,5 +1,6 @@
 /* eslint-disable no-constant-condition */
-import { castArray, map } from 'lodash-es'
+import castArray from 'lodash/castArray'
+import map from 'lodash/map'
 import { Location, Point } from 'slate'
 import { getEditorString } from '../../slate/editor/getEditorString'
 import { getPoint } from '../../slate/editor/getPoint'

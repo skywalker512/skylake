@@ -1,4 +1,4 @@
-import { castArray } from 'lodash-es'
+import castArray from 'lodash/castArray'
 import { TEditor, Value } from '../../slate/editor/TEditor'
 import { withoutNormalizing } from '../../slate/editor/withoutNormalizing'
 import { EMarks } from '../../slate/text/TText'
@@ -6,8 +6,10 @@ import { isMarkActive } from '../queries/isMarkActive'
 import { ToggleMarkPlugin } from '../types/plugins/ToggleMarkPlugin'
 import { removeMark } from './removeMark'
 
-export interface ToggleMarkOptions<V extends Value, K extends keyof EMarks<V>>
-  extends Pick<ToggleMarkPlugin<V, K>, 'clear'> {
+export interface ToggleMarkOptions<
+  V extends Value = Value,
+  K extends keyof EMarks<V> = keyof EMarks<V>
+> extends Pick<ToggleMarkPlugin<V, K>, 'clear'> {
   key: K
 }
 
@@ -18,7 +20,10 @@ export interface ToggleMarkOptions<V extends Value, K extends keyof EMarks<V>>
  * @param key Mark to toggle
  * @param clear Marks to clear when adding mark
  */
-export const toggleMark = <V extends Value, K extends keyof EMarks<V>>(
+export const toggleMark = <
+  V extends Value = Value,
+  K extends keyof EMarks<V> = keyof EMarks<V>
+>(
   editor: TEditor<V>,
   { key, clear }: ToggleMarkOptions<V, K>
 ) => {

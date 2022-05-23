@@ -1,7 +1,7 @@
 import { Value } from '../../slate/editor/TEditor'
 import { PlateEditor } from '../PlateEditor'
 import { HandlerReturnType } from './DOMHandlers'
-import { WithPlatePlugin } from './PlatePlugin'
+import { PluginOptions, WithPlatePlugin } from './PlatePlugin'
 
 /**
  * Function called whenever a change occurs in the editor. Return `false` to
@@ -10,7 +10,7 @@ import { WithPlatePlugin } from './PlatePlugin'
  * @see {@link SlatePropsOnChange}
  */
 export type OnChange<
-  P = {},
+  P = PluginOptions,
   V extends Value = Value,
   E extends PlateEditor<V> = PlateEditor<V>
 > = (

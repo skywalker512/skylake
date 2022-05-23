@@ -1,3 +1,4 @@
+import React from 'react'
 import { DefaultElement } from 'slate-react'
 import { Value } from '../slate/editor/TEditor'
 import { PlateEditor } from '../types/PlateEditor'

@@ -1,4 +1,4 @@
-import { castArray } from 'lodash-es'
+import castArray from 'lodash/castArray'
 import { isBlock } from '../../slate/editor/isBlock'
 import { TEditor, Value } from '../../slate/editor/TEditor'
 import { ENode, TNode } from '../../slate/node/TNode'
@@ -53,4 +53,11 @@ export const getQueryOptions = <V extends Value>(
             match(n, path, _match) && (!block || isBlock(editor, n))
         : undefined,
   }
+}
+
+export type ENodeMatch<N extends TNode> = Predicate<N>
+
+export interface ENodeMatchOptions<V extends Value = Value> {
+  match?: ENodeMatch<ENode<V>>
+  block?: boolean
 }

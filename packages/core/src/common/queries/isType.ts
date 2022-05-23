@@ -1,4 +1,4 @@
-import { castArray } from 'lodash-es'
+import castArray from 'lodash/castArray'
 import { Value } from '../../slate/editor/TEditor'
 import { PlateEditor } from '../../types/PlateEditor'
 import { getPluginType } from '../../utils/getPluginType'

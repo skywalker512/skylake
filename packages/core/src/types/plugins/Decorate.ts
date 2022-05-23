@@ -2,7 +2,11 @@ import { Range } from 'slate'
 import { Value } from '../../slate/editor/TEditor'
 import { ENodeEntry } from '../../slate/node/TNodeEntry'
 import { PlateEditor } from '../PlateEditor'
-import { WithPlatePlugin } from './PlatePlugin'
+import { PluginOptions, WithPlatePlugin } from './PlatePlugin'
+
+export type DecorateEntry<V extends Value = Value> = (
+  entry: ENodeEntry<V>
+) => Range[] | undefined
 
 /**
  * Property used by Plate to decorate editor ranges. If the function returns
@@ -10,10 +14,10 @@ import { WithPlatePlugin } from './PlatePlugin'
  * returned ranges are merged with the ranges called by other plugins.
  */
 export type Decorate<
-  P = {},
+  P = PluginOptions,
   V extends Value = Value,
   E extends PlateEditor<V> = PlateEditor<V>
 > = (
-  editor: E,
+  editor: PlateEditor<V>,
   plugin: WithPlatePlugin<P, V, E>
-) => (entry: ENodeEntry<V>) => Range[] | undefined
+) => DecorateEntry<V>

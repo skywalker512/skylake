@@ -1,8 +1,8 @@
-import { cloneDeep } from 'lodash-es'
+import cloneDeep from 'lodash/cloneDeep'
 import { Value } from '../slate/editor/TEditor'
 import { OverrideByKey } from '../types/OverrideByKey'
 import { PlateEditor } from '../types/PlateEditor'
-import { PlatePlugin } from '../types/plugins/PlatePlugin'
+import { PlatePlugin, PluginOptions } from '../types/plugins/PlatePlugin'
 import { PlatePluginComponent } from '../types/plugins/PlatePluginComponent'
 import { overridePluginsByKey } from './overridePluginsByKey'
 
@@ -16,7 +16,7 @@ export const createPlugins = <
   V extends Value = Value,
   E extends PlateEditor<V> = PlateEditor<V>
 >(
-  plugins: PlatePlugin<{}, V, E>[],
+  plugins: PlatePlugin<PluginOptions, V, E>[],
   {
     components,
     overrideByKey,
@@ -27,7 +27,7 @@ export const createPlugins = <
     /** Override plugin by key. */
     overrideByKey?: OverrideByKey<V, E>
   } = {}
-): PlatePlugin<{}, V, E>[] => {
+): PlatePlugin<PluginOptions, V, E>[] => {
   let allOverrideByKey: OverrideByKey<V, E> = {}
 
   if (overrideByKey) {

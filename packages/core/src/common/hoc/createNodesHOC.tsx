@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react'
-import { castArray } from 'lodash-es'
+import castArray from 'lodash/castArray'
 import { AnyObject } from '../types/utility/AnyObject'
 import { createNodeHOC } from './createNodeHOC'
 

@@ -3,11 +3,12 @@
 export * from './findDescendant'
 export * from './findNode'
 export * from './getBlockAbove'
-// export * from './getChildren';
+export * from './getChildren'
 export * from './getLastChild'
 export * from './getLastNodeByLevel'
 export * from './getMark'
 export * from './getNextSiblingNodes'
+export * from './getOperations'
 export * from './getPointBeforeLocation'
 export * from './getPointFromLocation'
 export * from './getPointNextToVoid'

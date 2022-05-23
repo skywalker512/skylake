@@ -1,3 +1,4 @@
+import React from 'react'
 import { DefaultLeaf } from '../components/DefaultLeaf'
 import { Value } from '../slate/editor/TEditor'
 import { TEditableProps } from '../slate/types/TEditableProps'

@@ -9,7 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@skylakes/slate-block-quote": "workspace:*",
+    "@skylakes/slate-code-block": "workspace:*",
     "@skylakes/slate-core": "workspace:*",
+    "@skylakes/slate-heading": "workspace:*",
+    "@skylakes/slate-paragraph": "workspace:*",
     "@udecode/plate-core": "^11.0.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",

@@ -1,7 +1,8 @@
 /** @jsx jsx */
 
-import { PlateEditor } from '@udecode/plate-core'
 import { jsx } from '@udecode/plate-test-utils'
+import { TNode } from '../../../../slate/node/TNode'
+import { PlateEditor } from '../../../../types/PlateEditor'
 import { mergeDeepToNodes } from '../../../../utils/mergeDeepToNodes'
 
 jsx
@@ -23,7 +24,7 @@ const output = (
 ) as any
 
 it('should do nothing', () => {
-  mergeDeepToNodes({ node: editor, source: props })
+  mergeDeepToNodes<TNode>({ node: editor as any, source: props })
   expect(editor.a).toBe(1)
   expect(editor.children).toEqual(output.children)
 })

@@ -1,5 +1,5 @@
 import { createStore } from '@udecode/zustood'
-import { castArray } from 'lodash-es'
+import castArray from 'lodash/castArray'
 import { isUndefined } from '../../common/utils/types.utils'
 import { PlateProps } from '../../components/Plate'
 import { Value } from '../../slate/editor/TEditor'
@@ -14,7 +14,7 @@ import { createPlateStore } from './createPlateStore'
 import { getPlateStore, usePlateStore } from './usePlateStore'
 
 export const setPlateState = <
-  V extends Value,
+  V extends Value = Value,
   E extends PlateEditor<V> = PlateEditor<V>
 >(
   draft: Partial<PlateStoreState<V, E>>,
@@ -46,15 +46,15 @@ export const setPlateState = <
 
 /** Plates store. */
 export const createPlatesStore = (
-  initialState: Partial<PlatesStoreState<Value>> = {}
+  initialState: Partial<PlatesStoreState> = {}
 ) =>
-  createStore('plate')(initialState as PlatesStoreState<Value>)
+  createStore('plate')(initialState as PlatesStoreState)
     .extendActions((set) => ({
       /**
        * Set state by id. If the store is not yet initialized, it will be
        * initialized. If the store is already set, it will be updated.
        */
-      set: <V extends Value, E extends PlateEditor<V> = PlateEditor<V>>(
+      set: <V extends Value = Value, E extends PlateEditor<V> = PlateEditor<V>>(
         id: string,
         state?: PlateProps<V, E>
       ) => {
@@ -82,7 +82,7 @@ export const createPlatesStore = (
       },
     }))
     .extendSelectors((state) => ({
-      get<V extends Value, E extends PlateEditor<V> = PlateEditor<V>>(
+      get<V extends Value = Value, E extends PlateEditor<V> = PlateEditor<V>>(
         id: string
       ) {
         return state[id] as any as PlateStoreApi<V, E>
@@ -101,19 +101,19 @@ export const platesSelectors = platesStore.get
 export const usePlatesSelectors = platesStore.use
 
 export const getPlateActions = <
-  V extends Value,
+  V extends Value = Value,
   E extends PlateEditor<V> = PlateEditor<V>
 >(
   id?: string
 ) => getPlateStore<V, E>(id).set
 export const getPlateSelectors = <
-  V extends Value,
+  V extends Value = Value,
   E extends PlateEditor<V> = PlateEditor<V>
 >(
   id?: string
 ) => getPlateStore<V, E>(id).get
 export const usePlateSelectors = <
-  V extends Value,
+  V extends Value = Value,
   E extends PlateEditor<V> = PlateEditor<V>
 >(
   id?: string

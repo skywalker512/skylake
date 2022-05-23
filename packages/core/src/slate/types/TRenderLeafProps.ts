@@ -1,11 +1,11 @@
 import { RenderLeafProps } from 'slate-react'
 import { Modify } from '../../common/types/utility/types'
 import { Value } from '../editor/TEditor'
-import { EText } from '../text/TText'
+import { EText, TText } from '../text/TText'
 
 export type TRenderLeafProps<
-  V extends Value,
-  N extends EText<V> = EText<V>
+  V extends Value = Value,
+  N extends TText = EText<V>
 > = Modify<
   RenderLeafProps,
   {
@@ -14,6 +14,6 @@ export type TRenderLeafProps<
   }
 >
 
-export type RenderLeafFn<V extends Value> = (
+export type RenderLeafFn<V extends Value = Value> = (
   props: TRenderLeafProps<V>
 ) => JSX.Element

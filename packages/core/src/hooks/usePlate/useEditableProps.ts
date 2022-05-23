@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { omit } from 'lodash-es'
+import omit from 'lodash/omit'
 import { useDeepCompareMemo } from 'use-deep-compare'
 import { PlateProps } from '../../components/Plate'
 import { Value } from '../../slate/editor/TEditor'

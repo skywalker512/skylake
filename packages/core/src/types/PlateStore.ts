@@ -2,7 +2,7 @@ import { Nullable } from '../common/types/utility/Nullable'
 import { Value } from '../slate/editor/TEditor'
 import { TEditableProps } from '../slate/types/TEditableProps'
 import { createPlateStore } from '../stores/plate/createPlateStore'
-import { PlatePlugin } from './plugins/PlatePlugin'
+import { PlatePlugin, PluginOptions } from './plugins/PlatePlugin'
 import { PlateEditor } from './PlateEditor'
 
 /**
@@ -16,7 +16,7 @@ export type EditorId = string | null | undefined
 export type PlateChangeKey = 'keyEditor' | 'keyPlugins' | 'keySelection'
 
 export type PlateStoreState<
-  V extends Value,
+  V extends Value = Value,
   E extends PlateEditor<V> = PlateEditor<V>
 > = {
   /**
@@ -25,7 +25,7 @@ export type PlateStoreState<
    */
   id: string
 
-  plugins: PlatePlugin<{}, V, E>[]
+  plugins: PlatePlugin<PluginOptions, V, E>[]
 } & Required<
   Nullable<Pick<TEditableProps<V>, 'decorate' | 'renderElement' | 'renderLeaf'>>
 > &
@@ -73,8 +73,11 @@ class Helper<V extends Value, E extends PlateEditor<V> = PlateEditor<V>> {
 }
 
 export type PlateStoreApi<
-  V extends Value,
+  V extends Value = Value,
   E extends PlateEditor<V> = PlateEditor<V>
 > = Helper<V, E>['Return']
 
-export type PlatesStoreState<V extends Value> = Record<string, PlateStoreApi<V>>
+export type PlatesStoreState<V extends Value = Value> = Record<
+  string,
+  PlateStoreApi<V>
+>

@@ -16,23 +16,22 @@ import {
 } from 'react'
 import { Value } from '../../slate/editor/TEditor'
 import { PlateEditor } from '../PlateEditor'
-import { WithPlatePlugin } from './PlatePlugin'
+import { PluginOptions, WithPlatePlugin } from './PlatePlugin'
 
 /** If true, the next handlers will be skipped. */
 export type HandlerReturnType = boolean | void
 
+export type DOMHandlerReturnType<EV = {}> = (event: EV) => HandlerReturnType
+
 export type DOMHandler<
-  P = {},
+  P = PluginOptions,
   V extends Value = Value,
   E extends PlateEditor<V> = PlateEditor<V>,
   EV = {}
-> = (
-  editor: E,
-  plugin: WithPlatePlugin<P, V, E>
-) => (event: EV) => HandlerReturnType
+> = (editor: E, plugin: WithPlatePlugin<P, V, E>) => DOMHandlerReturnType<EV>
 
 export interface DOMHandlers<
-  P = {},
+  P = PluginOptions,
   V extends Value = Value,
   E extends PlateEditor<V> = PlateEditor<V>
 > {
