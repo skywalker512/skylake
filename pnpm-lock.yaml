@@ -36,6 +36,7 @@ importers:
     specifiers:
       '@mantine/core': ^4.2.6
       '@mantine/hooks': ^4.2.6
+      '@modulz/radix-icons': ^4.0.0
       '@skylakes/slate-autoformat': workspace:*
       '@skylakes/slate-block-quote': workspace:*
       '@skylakes/slate-break': workspace:*
@@ -61,6 +62,7 @@ importers:
     dependencies:
       '@mantine/core': 4.2.6_4aq3fijiwcnee2kgs4oyh3fbtq
       '@mantine/hooks': 4.2.6_react@18.1.0
+      '@modulz/radix-icons': 4.0.0_react@18.1.0
       '@skylakes/slate-autoformat': link:../../packages/autoformat
       '@skylakes/slate-block-quote': link:../../packages/block-quote
       '@skylakes/slate-break': link:../../packages/break
@@ -651,6 +653,14 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - '@types/react'
+    dev: false
+
+  /@modulz/radix-icons/4.0.0_react@18.1.0:
+    resolution: {integrity: sha512-d79T4cYvMGMocVC/q1WiMO578FPFfUoxmXIkduc8cUQAPDr7thuEV5HrCHhqqqkoVaYD0QPct180ilcNUyGPrg==}
+    peerDependencies:
+      react: ^16.x || ^17.x
+    dependencies:
+      react: 18.1.0
     dev: false
 
   /@nodelib/fs.scandir/2.1.5:
