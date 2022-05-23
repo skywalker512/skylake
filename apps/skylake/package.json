@@ -9,11 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mantine/core": "^4.2.6",
+    "@mantine/hooks": "^4.2.6",
+    "@skylakes/slate-autoformat": "workspace:*",
     "@skylakes/slate-block-quote": "workspace:*",
     "@skylakes/slate-code-block": "workspace:*",
     "@skylakes/slate-core": "workspace:*",
     "@skylakes/slate-heading": "workspace:*",
     "@skylakes/slate-paragraph": "workspace:*",
+    "@skylakes/slate-reset-node": "workspace:*",
     "@udecode/plate-core": "^11.0.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",

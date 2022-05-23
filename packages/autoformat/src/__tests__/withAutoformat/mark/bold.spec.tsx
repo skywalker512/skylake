@@ -1,0 +1,35 @@
+/** @jsx jsx */
+
+import { mockPlugin } from '@skylakes/slate-core'
+import { jsx } from '@udecode/plate-test-utils'
+import { withReact } from 'slate-react'
+import { CONFIG } from '../../../../../../../docs/src/live/config/config'
+import { withAutoformat } from '../../../withAutoformat'
+
+jsx
+
+const input = (
+  <editor>
+    <hp>
+      **hello
+      <cursor />
+    </hp>
+  </editor>
+) as any
+
+const output = (
+  <editor>
+    <hp>
+      <htext bold>hello</htext>
+    </hp>
+  </editor>
+) as any
+
+it('should autoformat', () => {
+  const editor = withAutoformat(withReact(input), mockPlugin(CONFIG.autoformat))
+
+  editor.insertText('*')
+  editor.insertText('*')
+
+  expect(input.children).toEqual(output.children)
+})
