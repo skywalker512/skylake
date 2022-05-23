@@ -34,7 +34,7 @@ export const autoformatBlock = <V extends Value>(
     triggerAtBlockStart = true,
   }: AutoformatBlockOptions<V>
 ) => {
-  const matches = castArray(_match as string | string[])
+  const matches = castArray(_match)
 
   for (const match of matches) {
     const { end, triggers } = getMatchRange({

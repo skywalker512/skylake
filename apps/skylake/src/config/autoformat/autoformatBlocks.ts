@@ -4,12 +4,12 @@ import {
   ELEMENT_CODE_BLOCK,
   insertEmptyCodeBlock,
 } from '@skylakes/slate-code-block'
-import {
-  ELEMENT_DEFAULT,
-  getPluginType,
-  // insertElements,
-  // setElements,
-} from '@skylakes/slate-core'
+// import {
+//   ELEMENT_DEFAULT,
+//   getPluginType,
+//   // insertElements,
+//   // setElements,
+// } from '@skylakes/slate-core'
 
 import {
   ELEMENT_H1,
@@ -80,12 +80,11 @@ export const autoformatBlocks: AutoformatRule[] = [
   {
     mode: 'block',
     type: ELEMENT_CODE_BLOCK,
-    match: '```',
+    match: '``` ',
     triggerAtBlockStart: false,
     preFormat: clearBlockFormat,
     format: (editor) => {
       insertEmptyCodeBlock(editor, {
-        defaultType: getPluginType(editor, ELEMENT_DEFAULT),
         insertNodesOptions: { select: true },
       })
     },

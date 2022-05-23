@@ -38,7 +38,7 @@ export const withAutoformat = <
 
       if (
         autoformatter[mode]?.(editor, {
-          ...(rule as any),
+          ...rule,
           text,
         })
       ) {

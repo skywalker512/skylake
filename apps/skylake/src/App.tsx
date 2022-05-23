@@ -8,9 +8,14 @@ import { createAutoformatPlugin } from '@skylakes/slate-autoformat'
 import { createResetNodePlugin } from '@skylakes/slate-reset-node'
 
 import { Text, Blockquote, Title, TitleOrder } from '@mantine/core'
+import {
+  createExitBreakPlugin,
+  createSoftBreakPlugin,
+} from '@skylakes/slate-break'
 import { StyledElement } from './StyledElement'
 import { autoformatRules } from './config/autoformat/autoformatRules'
 import { resetBlockRules } from './config/resetBlock/resetBlock'
+import { exitBreakRules, softBreakRules } from './config/break/break'
 
 const App = () => (
   <div>
@@ -39,6 +44,16 @@ const App = () => (
         createResetNodePlugin({
           options: {
             rules: [...resetBlockRules],
+          },
+        }),
+        createSoftBreakPlugin({
+          options: {
+            rules: [...softBreakRules],
+          },
+        }),
+        createExitBreakPlugin({
+          options: {
+            rules: [...exitBreakRules],
           },
         }),
       ])}

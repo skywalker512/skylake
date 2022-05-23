@@ -38,6 +38,7 @@ importers:
       '@mantine/hooks': ^4.2.6
       '@skylakes/slate-autoformat': workspace:*
       '@skylakes/slate-block-quote': workspace:*
+      '@skylakes/slate-break': workspace:*
       '@skylakes/slate-code-block': workspace:*
       '@skylakes/slate-core': workspace:*
       '@skylakes/slate-heading': workspace:*
@@ -62,6 +63,7 @@ importers:
       '@mantine/hooks': 4.2.6_react@18.1.0
       '@skylakes/slate-autoformat': link:../../packages/autoformat
       '@skylakes/slate-block-quote': link:../../packages/block-quote
+      '@skylakes/slate-break': link:../../packages/break
       '@skylakes/slate-code-block': link:../../packages/code-block
       '@skylakes/slate-core': link:../../packages/core
       '@skylakes/slate-heading': link:../../packages/heading
@@ -100,6 +102,18 @@ importers:
       '@skylakes/slate-core': workspace:*
     dependencies:
       '@skylakes/slate-core': link:../core
+
+  packages/break:
+    specifiers:
+      '@skylakes/slate-core': workspace:*
+      '@types/is-hotkey': ^0.1.7
+      is-hotkey: ^0.2.0
+      slate: ^0.78.0
+    dependencies:
+      '@skylakes/slate-core': link:../core
+      '@types/is-hotkey': 0.1.7
+      is-hotkey: 0.2.0
+      slate: 0.78.0
 
   packages/code-block:
     specifiers:

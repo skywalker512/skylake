@@ -13,6 +13,7 @@
     "@mantine/hooks": "^4.2.6",
     "@skylakes/slate-autoformat": "workspace:*",
     "@skylakes/slate-block-quote": "workspace:*",
+    "@skylakes/slate-break": "workspace:*",
     "@skylakes/slate-code-block": "workspace:*",
     "@skylakes/slate-core": "workspace:*",
     "@skylakes/slate-heading": "workspace:*",

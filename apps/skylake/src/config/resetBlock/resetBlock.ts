@@ -1,8 +1,5 @@
 import { ELEMENT_BLOCKQUOTE } from '@skylakes/slate-block-quote'
-import {
-  isBlockAboveEmpty,
-  isSelectionAtBlockStart,
-} from '@skylakes/slate-core'
+import { isSelectionAtBlockStart } from '@skylakes/slate-core'
 import { KEYS_HEADING } from '@skylakes/slate-heading'
 import { ELEMENT_PARAGRAPH } from '@skylakes/slate-paragraph'
 import { ResetNodePluginRule } from '@skylakes/slate-reset-node'
@@ -13,11 +10,11 @@ const resetBlockTypesCommonRule = {
 }
 
 export const resetBlockRules: ResetNodePluginRule[] = [
-  {
-    ...resetBlockTypesCommonRule,
-    hotkey: 'Enter',
-    predicate: isBlockAboveEmpty,
-  },
+  // {
+  //   ...resetBlockTypesCommonRule,
+  //   hotkey: 'Enter',
+  //   predicate: isBlockAboveEmpty,
+  // },
   {
     ...resetBlockTypesCommonRule,
     hotkey: 'Backspace',
