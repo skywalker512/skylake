@@ -4,6 +4,11 @@ import {
   ELEMENT_CODE_BLOCK,
   insertEmptyCodeBlock,
 } from '@skylakes/slate-code-block'
+import {
+  ELEMENT_DEFAULT,
+  insertElements,
+  setElements,
+} from '@skylakes/slate-core'
 // import {
 //   ELEMENT_DEFAULT,
 //   getPluginType,
@@ -19,6 +24,7 @@ import {
   ELEMENT_H5,
   ELEMENT_H6,
 } from '@skylakes/slate-heading'
+import { ELEMENT_HR } from '@skylakes/slate-horizontal-rule'
 import { clearBlockFormat } from './autoformatUtils'
 
 export const autoformatBlocks: AutoformatRule[] = [
@@ -64,19 +70,19 @@ export const autoformatBlocks: AutoformatRule[] = [
     match: '> ',
     preFormat: clearBlockFormat,
   },
-  // {
-  //   mode: 'block',
-  //   type: ELEMENT_HR,
-  //   match: ['---', '—-'],
-  //   preFormat: clearBlockFormat,
-  //   format: (editor) => {
-  //     setElements(editor, { type: ELEMENT_HR });
-  //     insertElements(editor, {
-  //       type: ELEMENT_DEFAULT,
-  //       children: [{ text: '' }],
-  //     });
-  //   },
-  // },
+  {
+    mode: 'block',
+    type: ELEMENT_HR,
+    match: ['---', '—-'],
+    preFormat: clearBlockFormat,
+    format: (editor) => {
+      setElements(editor, { type: ELEMENT_HR })
+      insertElements(editor, {
+        type: ELEMENT_DEFAULT,
+        children: [{ text: '' }],
+      })
+    },
+  },
   {
     mode: 'block',
     type: ELEMENT_CODE_BLOCK,

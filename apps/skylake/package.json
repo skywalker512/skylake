@@ -20,6 +20,8 @@
     "@skylakes/slate-code-block": "workspace:*",
     "@skylakes/slate-core": "workspace:*",
     "@skylakes/slate-heading": "workspace:*",
+    "@skylakes/slate-horizontal-rule": "workspace:*",
+    "@skylakes/slate-list": "workspace:*",
     "@skylakes/slate-paragraph": "workspace:*",
     "@skylakes/slate-reset-node": "workspace:*",
     "react": "^18.1.0",

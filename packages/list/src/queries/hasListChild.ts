@@ -1,0 +1,8 @@
+import { match, PlateEditor, TAncestor, Value } from '@skylakes/slate-core'
+import { getListTypes } from './getListTypes'
+
+/** Is there a list child in the node. */
+export const hasListChild = <V extends Value>(
+  editor: PlateEditor<V>,
+  node: TAncestor
+) => node.children.some((n) => match(n, [], { type: getListTypes(editor) }))

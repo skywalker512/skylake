@@ -45,6 +45,8 @@ importers:
       '@skylakes/slate-code-block': workspace:*
       '@skylakes/slate-core': workspace:*
       '@skylakes/slate-heading': workspace:*
+      '@skylakes/slate-horizontal-rule': workspace:*
+      '@skylakes/slate-list': workspace:*
       '@skylakes/slate-paragraph': workspace:*
       '@skylakes/slate-reset-node': workspace:*
       '@types/react': ^18.0.9
@@ -72,6 +74,8 @@ importers:
       '@skylakes/slate-code-block': link:../../packages/code-block
       '@skylakes/slate-core': link:../../packages/core
       '@skylakes/slate-heading': link:../../packages/heading
+      '@skylakes/slate-horizontal-rule': link:../../packages/horizontal-rule
+      '@skylakes/slate-list': link:../../packages/list
       '@skylakes/slate-paragraph': link:../../packages/paragraph
       '@skylakes/slate-reset-node': link:../../packages/reset-node
       react: 18.1.0
@@ -189,6 +193,30 @@ importers:
       '@skylakes/slate-core': workspace:*
     dependencies:
       '@skylakes/slate-core': link:../core
+
+  packages/horizontal-rule:
+    specifiers:
+      '@skylakes/slate-core': workspace:*
+    dependencies:
+      '@skylakes/slate-core': link:../core
+
+  packages/list:
+    specifiers:
+      '@skylakes/slate-core': workspace:*
+      '@skylakes/slate-reset-node': workspace:*
+      '@types/is-hotkey': ^0.1.7
+      '@types/lodash': ^4.14.182
+      is-hotkey: ^0.2.0
+      lodash: ^4.17.21
+      slate: ^0.78.0
+    dependencies:
+      '@skylakes/slate-core': link:../core
+      '@skylakes/slate-reset-node': link:../reset-node
+      '@types/is-hotkey': 0.1.7
+      '@types/lodash': 4.14.182
+      is-hotkey: 0.2.0
+      lodash: 4.17.21
+      slate: 0.78.0
 
   packages/paragraph:
     specifiers:

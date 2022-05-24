@@ -10,6 +10,7 @@ import {
   usePlateEditorState,
 } from '@skylakes/slate-core'
 import { KEY_ALIGN, setAlign } from '@skylakes/slate-alignment'
+import { getListItemEntry, toggleList } from '@skylakes/slate-list'
 import { ToolbarButton } from './ToolbarButton'
 import { CONTROLS, ToolbarControl } from './controls'
 import useStyles from './Toolbar.styles'
@@ -35,6 +36,8 @@ const getIsMark = (control: Record<string, unknown> & { mark?: boolean }) =>
 
 const getIsAlign = (control: Record<string, unknown> & { align?: boolean }) =>
   !!control.align
+const getIsList = (control: Record<string, unknown> & { list?: boolean }) =>
+  !!control.list
 
 export const Toolbar = ({
   controls,
@@ -60,6 +63,7 @@ export const Toolbar = ({
         const Icon = CONTROLS[item].icon
         const isMark = getIsMark(CONTROLS[item])
         const isAlign = getIsAlign(CONTROLS[item])
+        const isList = getIsList(CONTROLS[item])
 
         return (
           <ToolbarButton
@@ -78,6 +82,13 @@ export const Toolbar = ({
                     someNode(editor, {
                       match: { [KEY_ALIGN]: CONTROLS[item].controls },
                     })
+                  )
+                }
+
+                if (isList) {
+                  return (
+                    getListItemEntry(editor)?.list[0].type ===
+                    CONTROLS[item].controls
                   )
                 }
 
@@ -100,6 +111,13 @@ export const Toolbar = ({
                         value: CONTROLS[item].controls as any,
                       })
                     }
+
+                    if (isList) {
+                      return getPreventDefaultHandler(toggleList, editor, {
+                        type: CONTROLS[item].controls,
+                      })
+                    }
+
                     return getPreventDefaultHandler(toggleNodeType, editor, {
                       activeType: CONTROLS[item].controls,
                     })

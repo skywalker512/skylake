@@ -6,6 +6,8 @@ import { createCodeBlockPlugin } from '@skylakes/slate-code-block'
 import { createHeadingPlugin, KEYS_HEADING } from '@skylakes/slate-heading'
 import { createAutoformatPlugin } from '@skylakes/slate-autoformat'
 import { createResetNodePlugin } from '@skylakes/slate-reset-node'
+import { createHorizontalRulePlugin } from '@skylakes/slate-horizontal-rule'
+
 import {
   createBoldPlugin,
   createCodePlugin,
@@ -17,11 +19,26 @@ import {
 } from '@skylakes/slate-basic-marks'
 import { createAlignPlugin } from '@skylakes/slate-alignment'
 
-import { Text, Blockquote, Title, TitleOrder, Box, Code } from '@mantine/core'
+import {
+  Text,
+  Blockquote,
+  Title,
+  TitleOrder,
+  Box,
+  Code,
+  Divider,
+} from '@mantine/core'
 import {
   createExitBreakPlugin,
   createSoftBreakPlugin,
 } from '@skylakes/slate-break'
+import {
+  createListPlugin,
+  ELEMENT_LI,
+  ELEMENT_LIC,
+  ELEMENT_OL,
+  ELEMENT_UL,
+} from '@skylakes/slate-list'
 import { StyledElement, StyledLeaf } from './StyledElement'
 import { autoformatRules } from './config/autoformat/autoformatRules'
 import { resetBlockRules } from './config/resetBlock/resetBlock'
@@ -156,6 +173,49 @@ const App = () => (
           }),
 
           createAlignPlugin(),
+
+          createHorizontalRulePlugin({ component: StyledElement(Divider) }),
+
+          createListPlugin({
+            overrideByKey: {
+              [ELEMENT_UL]: {
+                component: StyledElement(
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-expect-error
+                  withProps(Text, {
+                    component: 'ul',
+                  })
+                ),
+              },
+              [ELEMENT_LI]: {
+                component: StyledElement(
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-expect-error
+                  withProps(Text, {
+                    component: 'li',
+                  })
+                ),
+              },
+              [ELEMENT_OL]: {
+                component: StyledElement(
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-expect-error
+                  withProps(Text, {
+                    component: 'ol',
+                  })
+                ),
+              },
+              [ELEMENT_LIC]: {
+                component: StyledElement(
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-expect-error
+                  withProps(Text, {
+                    component: 'lic',
+                  })
+                ),
+              },
+            },
+          }),
         ])}
       >
         <Toolbar

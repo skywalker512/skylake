@@ -32,6 +32,7 @@ import {
   ELEMENT_H5,
   ELEMENT_H6,
 } from '@skylakes/slate-heading'
+import { ELEMENT_OL, ELEMENT_UL } from '@skylakes/slate-list'
 import { OrderedList, H1, H2, H3, H4, H5, H6, Sub, Sup } from './icons'
 
 export const CONTROLS = {
@@ -72,13 +73,14 @@ export const CONTROLS = {
 
   unorderedList: {
     icon: ListBulletIcon,
-    controls: 'list',
-    value: 'bullet',
+    controls: ELEMENT_UL,
+    list: true,
   },
 
   orderedList: {
     icon: OrderedList,
-    controls: 'list',
+    controls: ELEMENT_OL,
+    list: true,
   },
 
   link: {
