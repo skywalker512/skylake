@@ -2,10 +2,14 @@
 import { DefaultProps, Selectors } from '@mantine/core'
 import {
   getPreventDefaultHandler,
+  isCollapsed,
+  isMarkActive,
   someNode,
+  toggleMark,
   toggleNodeType,
   usePlateEditorState,
 } from '@skylakes/slate-core'
+import { KEY_ALIGN, setAlign } from '@skylakes/slate-alignment'
 import { ToolbarButton } from './ToolbarButton'
 import { CONTROLS, ToolbarControl } from './controls'
 import useStyles from './Toolbar.styles'
@@ -25,6 +29,12 @@ export interface ToolbarProps extends DefaultProps<ToolbarStylesNames> {
   /** Id that is used to connect toolbar to editor */
   id?: string
 }
+
+const getIsMark = (control: Record<string, unknown> & { mark?: boolean }) =>
+  !!control.mark
+
+const getIsAlign = (control: Record<string, unknown> & { align?: boolean }) =>
+  !!control.align
 
 export const Toolbar = ({
   controls,
@@ -48,6 +58,8 @@ export const Toolbar = ({
       .filter((item) => CONTROLS[item])
       .map((item) => {
         const Icon = CONTROLS[item].icon
+        const isMark = getIsMark(CONTROLS[item])
+        const isAlign = getIsAlign(CONTROLS[item])
 
         return (
           <ToolbarButton
@@ -55,15 +67,44 @@ export const Toolbar = ({
             controls={CONTROLS[item].controls}
             active={
               !!editor?.selection &&
-              someNode(editor, { match: { type: CONTROLS[item].controls } })
+              (() => {
+                if (isMark) {
+                  return isMarkActive(editor, CONTROLS[item].controls)
+                }
+
+                if (isAlign) {
+                  return (
+                    isCollapsed(editor?.selection) &&
+                    someNode(editor, {
+                      match: { [KEY_ALIGN]: CONTROLS[item].controls },
+                    })
+                  )
+                }
+
+                return someNode(editor, {
+                  match: { type: CONTROLS[item].controls },
+                })
+              })()
             }
             key={item}
             onMouseDown={
               editor
-                ? getPreventDefaultHandler(toggleNodeType, editor, {
-                    activeType: CONTROLS[item].controls,
-                  })
-                : () => {}
+                ? (() => {
+                    if (isMark) {
+                      return getPreventDefaultHandler(toggleMark, editor, {
+                        key: CONTROLS[item].controls,
+                      })
+                    }
+                    if (isAlign) {
+                      return getPreventDefaultHandler(setAlign, editor, {
+                        value: CONTROLS[item].controls as any,
+                      })
+                    }
+                    return getPreventDefaultHandler(toggleNodeType, editor, {
+                      activeType: CONTROLS[item].controls,
+                    })
+                  })()
+                : undefined
             }
           >
             <Icon style={{ width: 18, height: 18 }} />

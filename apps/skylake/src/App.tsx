@@ -6,13 +6,23 @@ import { createCodeBlockPlugin } from '@skylakes/slate-code-block'
 import { createHeadingPlugin, KEYS_HEADING } from '@skylakes/slate-heading'
 import { createAutoformatPlugin } from '@skylakes/slate-autoformat'
 import { createResetNodePlugin } from '@skylakes/slate-reset-node'
+import {
+  createBoldPlugin,
+  createCodePlugin,
+  createItalicPlugin,
+  createStrikethroughPlugin,
+  createSubscriptPlugin,
+  createSuperscriptPlugin,
+  createUnderlinePlugin,
+} from '@skylakes/slate-basic-marks'
+import { createAlignPlugin } from '@skylakes/slate-alignment'
 
-import { Text, Blockquote, Title, TitleOrder, Box } from '@mantine/core'
+import { Text, Blockquote, Title, TitleOrder, Box, Code } from '@mantine/core'
 import {
   createExitBreakPlugin,
   createSoftBreakPlugin,
 } from '@skylakes/slate-break'
-import { StyledElement } from './StyledElement'
+import { StyledElement, StyledLeaf } from './StyledElement'
 import { autoformatRules } from './config/autoformat/autoformatRules'
 import { resetBlockRules } from './config/resetBlock/resetBlock'
 import { exitBreakRules, softBreakRules } from './config/break/break'
@@ -86,14 +96,74 @@ const App = () => (
               rules: [...exitBreakRules],
             },
           }),
+          createBoldPlugin({
+            component: StyledLeaf(
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-expect-error
+              withProps(Text, { component: 'strong' })
+            ),
+          }),
+          createItalicPlugin({
+            component: StyledLeaf(
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-expect-error
+              withProps(Text, { component: 'em' })
+            ),
+          }),
+          createUnderlinePlugin({
+            component: StyledLeaf(
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-expect-error
+              withProps(Text, { component: 'u', underline: true })
+            ),
+          }),
+
+          createStrikethroughPlugin({
+            component: StyledLeaf(
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-expect-error
+              withProps(Text, {
+                component: 's',
+                sx: { textDecoration: 'line-through' },
+              })
+            ),
+          }),
+
+          createSubscriptPlugin({
+            component: StyledLeaf(
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-expect-error
+              withProps(Text, {
+                component: 'sub',
+                size: 'xs',
+              })
+            ),
+          }),
+
+          createSuperscriptPlugin({
+            component: StyledLeaf(
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-expect-error
+              withProps(Text, {
+                component: 'sup',
+                size: 'xs',
+              })
+            ),
+          }),
+
+          createCodePlugin({
+            component: StyledLeaf(withProps(Code, {})),
+          }),
+
+          createAlignPlugin(),
         ])}
       >
         <Toolbar
           controls={[
-            ['bold', 'italic', 'underline', 'strike', 'clean'],
+            ['bold', 'italic', 'underline', 'strike', 'code'],
             ['h1', 'h2', 'h3', 'h4'],
             ['unorderedList', 'orderedList'],
-            ['link', 'image', 'video', 'blockquote', 'codeBlock'],
+            ['link', 'image', 'video', 'blockquote'],
             ['alignLeft', 'alignCenter', 'alignRight'],
             ['sup', 'sub'],
           ]}

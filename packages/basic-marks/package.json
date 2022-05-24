@@ -1,0 +1,37 @@
+{
+  "name": "@skylakes/slate-basic-marks",
+  "version": "11.0.6",
+  "description": "Paragraph plugin for Plate",
+  "keywords": [
+    "slate",
+    "plate",
+    "plugin"
+  ],
+  "homepage": "https://plate.udecode.io",
+  "bugs": {
+    "url": "https://github.com/udecode/plate/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/udecode/plate.git",
+    "directory": "packages/nodes/paragraph"
+  },
+  "license": "MIT",
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup --onSuccess=tsc",
+    "dev": "tsup --watch --onSuccess=tsc",
+    "release": "tsup --dts"
+  },
+  "dependencies": {
+    "@skylakes/slate-core": "workspace:*"
+  },
+  "peerDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -37,7 +37,9 @@ importers:
       '@mantine/core': ^4.2.6
       '@mantine/hooks': ^4.2.6
       '@modulz/radix-icons': ^4.0.0
+      '@skylakes/slate-alignment': workspace:*
       '@skylakes/slate-autoformat': workspace:*
+      '@skylakes/slate-basic-marks': workspace:*
       '@skylakes/slate-block-quote': workspace:*
       '@skylakes/slate-break': workspace:*
       '@skylakes/slate-code-block': workspace:*
@@ -47,7 +49,6 @@ importers:
       '@skylakes/slate-reset-node': workspace:*
       '@types/react': ^18.0.9
       '@types/react-dom': ^18.0.4
-      '@udecode/plate-core': ^11.0.6
       '@vitejs/plugin-react': ^1.3.2
       react: ^18.1.0
       react-dom: ^18.1.0
@@ -63,7 +64,9 @@ importers:
       '@mantine/core': 4.2.6_4aq3fijiwcnee2kgs4oyh3fbtq
       '@mantine/hooks': 4.2.6_react@18.1.0
       '@modulz/radix-icons': 4.0.0_react@18.1.0
+      '@skylakes/slate-alignment': link:../../packages/alignment
       '@skylakes/slate-autoformat': link:../../packages/autoformat
+      '@skylakes/slate-basic-marks': link:../../packages/basic-marks
       '@skylakes/slate-block-quote': link:../../packages/block-quote
       '@skylakes/slate-break': link:../../packages/break
       '@skylakes/slate-code-block': link:../../packages/code-block
@@ -71,7 +74,6 @@ importers:
       '@skylakes/slate-heading': link:../../packages/heading
       '@skylakes/slate-paragraph': link:../../packages/paragraph
       '@skylakes/slate-reset-node': link:../../packages/reset-node
-      '@udecode/plate-core': 11.0.6_benzyvdikcnot2ufifcv7bpwwq
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
       scheduler: 0.22.0
@@ -87,6 +89,12 @@ importers:
       vite: 2.9.9
       vite-plugin-inspect: 0.5.0_vite@2.9.9
 
+  packages/alignment:
+    specifiers:
+      '@skylakes/slate-core': workspace:*
+    dependencies:
+      '@skylakes/slate-core': link:../core
+
   packages/autoformat:
     specifiers:
       '@skylakes/slate-core': workspace:*
@@ -98,6 +106,12 @@ importers:
       '@types/lodash': 4.14.182
       lodash: 4.17.21
       slate: 0.78.0
+
+  packages/basic-marks:
+    specifiers:
+      '@skylakes/slate-core': workspace:*
+    dependencies:
+      '@skylakes/slate-core': link:../core
 
   packages/block-quote:
     specifiers:
@@ -1269,40 +1283,6 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@udecode/plate-core/11.0.6_benzyvdikcnot2ufifcv7bpwwq:
-    resolution: {integrity: sha512-pbPDMWOcLRCZ89yC20oGd/yDx6/McE7wQ5GlTmihDAKEvoFmhnE5uwpD1VERgs9RdaCH9hUJZ+hDK+9JdMhftA==}
-    peerDependencies:
-      react: '>=16.8.0'
-      react-dom: '>=16.8.0'
-      slate: '>=0.66.1'
-      slate-history: '>=0.66.0'
-      slate-react: '>=0.74.2'
-    dependencies:
-      '@udecode/zustood': 1.1.1_pi33sguylfimmbieknrr3oxfsq
-      clsx: 1.1.1
-      jotai: 1.6.7_react@18.1.0
-      lodash: 4.17.21
-      react: 18.1.0
-      react-dom: 18.1.0_react@18.1.0
-      slate: 0.78.0
-      slate-history: 0.66.0_slate@0.78.0
-      slate-react: 0.79.0_f2wd3brsyncbqb5a2vzjxmzjby
-      use-deep-compare: 1.1.0_react@18.1.0
-      zustand: 3.7.2_react@18.1.0
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@babel/template'
-      - '@urql/core'
-      - immer
-      - optics-ts
-      - react-native
-      - react-query
-      - scheduler
-      - valtio
-      - wonka
-      - xstate
-    dev: false
-
   /@udecode/zustood/1.1.1_id34gpsmvsqvlydcytxyebobuy:
     resolution: {integrity: sha512-EupPWrLliymKLMIdU1SavDQjuqsjGePT5cQwXgq+os3DgF6aU+Xq6XBFT9FkkNOw1KZ2bOy67pA6HOtvgTY4dg==}
     peerDependencies:
@@ -1311,21 +1291,6 @@ packages:
       immer: 9.0.14
       react-tracked: 1.7.9_76anhisiz3hqtp3ljzcu2wvkdm
       zustand: 4.0.0-rc.1_react@18.1.0
-    transitivePeerDependencies:
-      - react
-      - react-dom
-      - react-native
-      - scheduler
-    dev: false
-
-  /@udecode/zustood/1.1.1_pi33sguylfimmbieknrr3oxfsq:
-    resolution: {integrity: sha512-EupPWrLliymKLMIdU1SavDQjuqsjGePT5cQwXgq+os3DgF6aU+Xq6XBFT9FkkNOw1KZ2bOy67pA6HOtvgTY4dg==}
-    peerDependencies:
-      zustand: '>=3.5.10'
-    dependencies:
-      immer: 9.0.14
-      react-tracked: 1.7.9_76anhisiz3hqtp3ljzcu2wvkdm
-      zustand: 3.7.2_react@18.1.0
     transitivePeerDependencies:
       - react
       - react-dom
@@ -4703,18 +4668,6 @@ packages:
       y18n: 5.0.8
       yargs-parser: 21.0.1
     dev: true
-
-  /zustand/3.7.2_react@18.1.0:
-    resolution: {integrity: sha512-PIJDIZKtokhof+9+60cpockVOq05sJzHCriyvaLBmEJixseQ1a5Kdov6fWZfWOu5SK9c+FhH1jU0tntLxRJYMA==}
-    engines: {node: '>=12.7.0'}
-    peerDependencies:
-      react: '>=16.8'
-    peerDependenciesMeta:
-      react:
-        optional: true
-    dependencies:
-      react: 18.1.0
-    dev: false
 
   /zustand/4.0.0-rc.1_react@18.1.0:
     resolution: {integrity: sha512-qgcs7zLqBdHu0PuT3GW4WCIY5SgXdsv30GQMu9Qpp1BA2aS+sNS8l4x0hWuyEhjXkN+701aGWawhKDv6oWJAcw==}

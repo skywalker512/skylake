@@ -14,6 +14,15 @@ import {
   QuoteIcon,
   CodeIcon,
 } from '@modulz/radix-icons'
+import {
+  MARK_BOLD,
+  MARK_CODE,
+  MARK_ITALIC,
+  MARK_STRIKETHROUGH,
+  MARK_SUBSCRIPT,
+  MARK_SUPERSCRIPT,
+  MARK_UNDERLINE,
+} from '@skylakes/slate-basic-marks'
 import { ELEMENT_BLOCKQUOTE } from '@skylakes/slate-block-quote'
 import {
   ELEMENT_H1,
@@ -28,7 +37,8 @@ import { OrderedList, H1, H2, H3, H4, H5, H6, Sub, Sup } from './icons'
 export const CONTROLS = {
   code: {
     icon: CodeIcon,
-    controls: 'code',
+    controls: MARK_CODE,
+    mark: true,
   },
 
   codeBlock: {
@@ -38,22 +48,26 @@ export const CONTROLS = {
 
   bold: {
     icon: FontBoldIcon,
-    controls: 'bold',
+    controls: MARK_BOLD,
+    mark: true,
   },
 
   italic: {
     icon: FontItalicIcon,
-    controls: 'italic',
+    controls: MARK_ITALIC,
+    mark: true,
   },
 
   underline: {
     icon: UnderlineIcon,
-    controls: 'underline',
+    controls: MARK_UNDERLINE,
+    mark: true,
   },
 
   strike: {
     icon: StrikethroughIcon,
-    controls: 'strike',
+    controls: MARK_STRIKETHROUGH,
+    mark: true,
   },
 
   unorderedList: {
@@ -84,18 +98,20 @@ export const CONTROLS = {
 
   alignCenter: {
     icon: TextAlignCenterIcon,
-    controls: 'align',
-    value: 'center',
+    controls: 'center',
+    align: true,
   },
 
   alignLeft: {
     icon: TextAlignLeftIcon,
-    controls: 'align',
+    controls: 'left',
+    align: true,
   },
 
   alignRight: {
     icon: TextAlignRightIcon,
-    controls: 'align',
+    controls: 'right',
+    align: true,
   },
 
   video: {
@@ -140,14 +156,14 @@ export const CONTROLS = {
 
   sup: {
     icon: Sup,
-    controls: 'script',
-    value: 'super',
+    controls: MARK_SUPERSCRIPT,
+    mark: true,
   },
 
   sub: {
     icon: Sub,
-    controls: 'script',
-    value: 'sub',
+    controls: MARK_SUBSCRIPT,
+    mark: true,
   },
 
   blockquote: {
