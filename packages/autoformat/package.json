@@ -31,7 +31,7 @@
     "@skylakes/slate-core": "workspace:*",
     "@types/lodash": "^4.14.182",
     "lodash": "^4.17.21",
-    "slate": "^0.78.0"
+    "slate": "^0.80.0"
   },
   "publishConfig": {
     "access": "public"

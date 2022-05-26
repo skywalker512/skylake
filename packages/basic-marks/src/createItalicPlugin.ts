@@ -1,21 +1,22 @@
 import {
   createPluginFactory,
+  HotkeyPlugin,
   onKeyDownToggleMark,
   someHtmlElement,
-  ToggleMarkPlugin,
 } from '@skylakes/slate-core'
 
 export const MARK_ITALIC = 'italic'
 
 /** Enables support for italic formatting. */
-export const createItalicPlugin = createPluginFactory<ToggleMarkPlugin>({
-  key: MARK_ITALIC,
-  isLeaf: true,
+export const createItalicPlugin = createPluginFactory<HotkeyPlugin>({
+  key: MARK_ITALIC, // 类型
+  isLeaf: true, // 是否是叶子节点
   handlers: {
-    onKeyDown: onKeyDownToggleMark,
+    // 当按下快捷键时
+    onKeyDown: onKeyDownToggleMark, // Toggle
   },
   options: {
-    hotkey: 'mod+i',
+    hotkey: 'mod+i', // 快捷键
   },
   deserializeHtml: {
     rules: [
