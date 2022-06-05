@@ -54,7 +54,6 @@ import { HocuspocusProvider } from '@hocuspocus/provider'
 import { withCursors, withYHistory, withYjs, YjsEditor } from '@slate-yjs/core'
 
 import randomColor from 'randomcolor'
-import { faker } from '@faker-js/faker'
 import { StyledElement, StyledLeaf } from './StyledElement'
 import { autoformatRules } from './config/autoformat/autoformatRules'
 import { resetBlockRules } from './config/resetBlock/resetBlock'
@@ -97,7 +96,7 @@ export const withTYjsCursors = <
       alpha: 1,
       format: 'hex',
     }),
-    name: `${faker.name.firstName()} ${faker.name.lastName()}`,
+    name: (Math.random() + 1).toString(36).substring(7),
   }
   return withCursors(editor as any, awareness, { data: cursorData }) as EE
 }
@@ -141,7 +140,9 @@ const useProvider = () => {
 
   useEffect(() => {
     provider.connect()
-    return () => provider.disconnect()
+    return () => {
+      provider.disconnect()
+    }
   }, [provider])
 
   return provider

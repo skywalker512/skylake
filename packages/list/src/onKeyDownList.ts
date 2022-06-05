@@ -7,7 +7,7 @@ import {
   WithPlatePlugin,
 } from '@skylakes/slate-core'
 import isHotkey from 'is-hotkey'
-import { castArray } from 'lodash'
+import castArray from 'lodash/castArray'
 import { moveListItems, toggleList } from './transforms'
 
 export const onKeyDownList =

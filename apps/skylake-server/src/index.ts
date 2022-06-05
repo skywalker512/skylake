@@ -12,6 +12,9 @@ import path from 'path'
 // const { Monitor } =
 //   require('@hocuspocus/extension-monitor') as typeof import('@hocuspocus/extension-monitor')
 
+// eslint-disable-next-line @typescript-eslint/naming-convention,no-underscore-dangle
+// const __dirname = new URL('.', import.meta.url).pathname
+
 const initialValue: Descendant[] = [{ children: [{ text: '' }] }]
 
 // Setup the server
@@ -21,7 +24,7 @@ const server = Server.configure({
   // Add logging
   extensions: [
     new Logger(),
-    new SQLite({ database: path.join(__dirname, 'data.db') }),
+    new SQLite({ database: path.join(__dirname, '..', 'data.db') }),
   ],
 
   async onLoadDocument(data) {

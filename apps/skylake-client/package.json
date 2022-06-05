@@ -1,27 +1,17 @@
 {
-  "name": "@skylakes/app",
+  "name": "@skylakes/skylake-client",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "tsc && vite build",
-    "dev": "vite & NODE_OPTIONS='--trace-warnings' vite-node src/server.ts",
+    "dev": "vite",
     "dev:inspect": "export INSPECT=1 && vite",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@faker-js/faker": "^7.1.0",
-    "@hocuspocus/extension-database": "1.0.0-alpha.16",
-    "@hocuspocus/extension-logger": "1.0.0-alpha.76",
-    "@hocuspocus/extension-monitor": "1.0.0-alpha.103",
-    "@hocuspocus/extension-redis": "1.0.0-alpha.65",
-    "@hocuspocus/extension-rocksdb": "1.0.0-alpha.103",
-    "@hocuspocus/extension-sqlite": "1.0.0-alpha.16",
-    "@hocuspocus/extension-throttle": "1.0.0-alpha.58",
-    "@hocuspocus/extension-webhook": "1.0.0-alpha.66",
     "@hocuspocus/provider": "1.0.0-alpha.36",
-    "@hocuspocus/server": "1.0.0-alpha.102",
-    "@mantine/core": "^4.2.6",
-    "@mantine/hooks": "^4.2.6",
+    "@mantine/core": "^4.2.7",
+    "@mantine/hooks": "^4.2.7",
     "@modulz/radix-icons": "^4.0.0",
     "@skylakes/slate-alignment": "workspace:*",
     "@skylakes/slate-autoformat": "workspace:*",
@@ -37,6 +27,7 @@
     "@skylakes/slate-reset-node": "workspace:*",
     "@slate-yjs/core": "^0.2.6",
     "@slate-yjs/react": "^0.2.4",
+    "randomcolor": "^0.6.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "scheduler": "^0.22.0",
@@ -47,14 +38,12 @@
   },
   "devDependencies": {
     "@types/randomcolor": "^0.5.6",
-    "@types/react": "^18.0.9",
+    "@types/react": "^18.0.11",
     "@types/react-dom": "^18.0.5",
     "@vitejs/plugin-react": "^1.3.2",
-    "randomcolor": "^0.6.2",
-    "rollup": "^2.75.1",
+    "rollup": "^2.75.5",
     "rollup-plugin-visualizer": "^5.6.0",
     "vite": "^2.9.9",
-    "vite-node": "^0.12.9",
     "vite-plugin-inspect": "^0.5.0"
   }
 }
