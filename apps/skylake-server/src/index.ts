@@ -24,7 +24,7 @@ const server = Server.configure({
   // Add logging
   extensions: [
     new Logger(),
-    new SQLite({ database: path.join(__dirname, '..', 'data.db') }),
+    new SQLite({ database: path.join(__dirname, 'data.db') }),
   ],
 
   async onLoadDocument(data) {
