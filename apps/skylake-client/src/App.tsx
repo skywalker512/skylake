@@ -131,7 +131,9 @@ const useProvider = () => {
   const provider = useMemo(
     () =>
       new HocuspocusProvider({
-        url: 'ws://127.0.0.1:1234',
+        url: import.meta.env.PROD
+          ? 'wss://e.wc.atowerlight.cn'
+          : 'ws://localhost:1234',
         name: 'slate-yjs-demo',
         connect: false,
       }),
