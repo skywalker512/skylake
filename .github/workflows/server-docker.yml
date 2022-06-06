@@ -23,7 +23,7 @@ jobs:
           node-version: '16'
           cache: 'pnpm'
       - name: Install Packages
-        run: pnpm install --frozen-lockfile --registry 'https://registry.npmmirror.com/'
+        run: pnpm i
       - name: Build
         run: cd apps/skylake-server && pnpm build
       - name: Set up Docker Buildx
