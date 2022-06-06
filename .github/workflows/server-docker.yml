@@ -23,7 +23,7 @@ jobs:
           node-version: '16'
           cache: 'pnpm'
       - name: Install Packages
-        run: pnpm i
+        run: pnpm install --registry 'https://registry.npmmirror.com/'
       - name: Build
         run: cd apps/skylake-server && pnpm build
       - name: Set up Docker Buildx
