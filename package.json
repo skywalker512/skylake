@@ -7,6 +7,7 @@
   "author": "",
   "main": "index.js",
   "scripts": {
+    "dev": "turbo run dev --filter=@skylakes/skylake-*",
     "prepare": "husky install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -10,6 +10,7 @@ import {
   PlateEditor,
   Value,
 } from '@skylakes/slate-core'
+import { toggleList } from '@skylakes/slate-list'
 
 export const clearBlockFormat: AutoformatBlockRule['preFormat'] = (editor) =>
   // unwrapList(editor);
@@ -33,16 +34,16 @@ export const format = <V extends Value>(
   }
 }
 
-// export const formatList = <V extends Value>(
-//   editor: PlateEditor<V>,
-//   elementType: string
-// ) => {
-//   format(editor, () =>
-//     toggleList(editor, {
-//       type: elementType,
-//     })
-//   );
-// };
+export const formatList = <V extends Value>(
+  editor: PlateEditor<V>,
+  elementType: string
+) => {
+  format(editor, () =>
+    toggleList(editor, {
+      type: elementType,
+    })
+  )
+}
 
 export const formatText = <V extends Value>(
   editor: PlateEditor<V>,

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "ncc build src/index.ts -o dist -t --v8-cache -s --target es2020",
-    "dev": "vite-node src/index.ts"
+    "dev": "vite-node src/index.ts -w"
   },
   "dependencies": {
     "@hocuspocus/extension-logger": "1.0.0-alpha.76",
