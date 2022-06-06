@@ -14,11 +14,11 @@
     "@hocuspocus/server": "1.0.0-alpha.102",
     "@slate-yjs/core": "^0.2.6",
     "@types/resolve": "^1.20.2",
-    "slate": "^0.80.0",
+    "slate": "^0.81.0",
     "yjs": "^13.5.38"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.34.0",
-    "vite-node": "^0.13.1"
+    "vite-node": "^0.14.1"
   }
 }

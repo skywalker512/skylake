@@ -34,7 +34,7 @@
     "@types/lodash": "^4.14.182",
     "is-hotkey": "^0.2.0",
     "lodash": "^4.17.21",
-    "slate": "^0.80.0"
+    "slate": "^0.81.0"
   },
   "publishConfig": {
     "access": "public"
