@@ -41,4 +41,4 @@ const server = Server.configure({
 
 // Start the server
 server.enableMessageLogging()
-server.listen()
+server.listen(1234)
