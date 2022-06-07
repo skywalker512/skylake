@@ -27,6 +27,7 @@ import {
   createUnderlinePlugin,
 } from '@skylakes/slate-basic-marks'
 import { createAlignPlugin } from '@skylakes/slate-alignment'
+import { createDeserializeDocxPlugin } from '@skylakes/slate-docx'
 
 import {
   Text,
@@ -297,6 +298,8 @@ const App = () => {
             // },
           },
         }),
+
+        createDeserializeDocxPlugin(),
       ]),
     [provider.document, provider.awareness]
   )

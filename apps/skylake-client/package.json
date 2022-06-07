@@ -20,6 +20,7 @@
     "@skylakes/slate-break": "workspace:*",
     "@skylakes/slate-code-block": "workspace:*",
     "@skylakes/slate-core": "workspace:*",
+    "@skylakes/slate-docx": "workspace:*",
     "@skylakes/slate-heading": "workspace:*",
     "@skylakes/slate-horizontal-rule": "workspace:*",
     "@skylakes/slate-list": "workspace:*",
@@ -43,7 +44,7 @@
     "@vitejs/plugin-react": "^1.3.2",
     "rollup": "^2.75.5",
     "rollup-plugin-visualizer": "^5.6.0",
-    "vite": "^2.9.9",
+    "vite": "^2.9.10",
     "vite-plugin-inspect": "^0.5.0"
   }
 }
