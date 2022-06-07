@@ -40,6 +40,6 @@ jobs:
           context: apps/skylake-server
           file: apps/skylake-server/Dockerfile
           push: true
-          tags: houzhenhong/skylake-server:latest
+          tags: houzhenhong/skylakes-server:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
