@@ -44,6 +44,7 @@ import {
 } from '@skylakes/slate-break'
 import {
   createListPlugin,
+  createTodoListPlugin,
   ELEMENT_LI,
   ELEMENT_OL,
   ELEMENT_UL,
@@ -62,6 +63,7 @@ import { exitBreakRules, softBreakRules } from './config/break/break'
 import { Toolbar } from './Toolbar/Toolbar'
 import { CursorData } from './types'
 import { RemoteCursorOverlay } from './RemoteCursorOverlay'
+import { TodoListElement } from './Element/TodoList'
 
 export const withTYjs = <
   V extends Value = Value,
@@ -298,6 +300,8 @@ const App = () => {
             // },
           },
         }),
+
+        createTodoListPlugin({ component: TodoListElement }),
 
         createDeserializeDocxPlugin(),
       ]),
